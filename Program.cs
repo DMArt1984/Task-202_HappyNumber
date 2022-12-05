@@ -10,6 +10,7 @@ namespace _202HappyNumber
             Console.WriteLine("Task 202");
             Console.WriteLine(IsHappy(19));
             Console.WriteLine(IsHappy(2));
+            Console.WriteLine(IsHappy(999));
             Console.ReadKey();
         }
 
@@ -25,15 +26,15 @@ namespace _202HappyNumber
         static public bool IsHappy(int n)
         {
             Console.WriteLine($"n = {n}");
-            List<double> used = new List<double>();
-            double num = n;
+            List<int> used = new List<int>();
+            int num = n;
             while (num != 1 && !used.Contains(num)) {
                 used.Add(num);
                 string s = num.ToString();
                 num = 0;
                 for (int i=0; i < s.Length; i++)
                 {
-                    num += Math.Pow(int.Parse(s[i].ToString()), 2);
+                    num += (int)Math.Pow(int.Parse(s[i].ToString()), 2);
                     Console.Write($" {s[i]} > {num}; ");
                 }
                 Console.WriteLine($" = {num}");
